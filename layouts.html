@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinker Chess — Variações de Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F8F5F1;
+            --bg-dark: #EDE8E2;
+            --text: #0a0a0a;
+            --text-secondary: #555;
+            --gray: #888;
+            --gray-light: #ccc;
+            --border: #d5d0cb;
+            --white: #ffffff;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        img { max-width: 100%; display: block; }
+
+        /* ═══ NAVBAR DO PLAYGROUND ═══ */
+        .play-nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 100;
+            background: rgba(248, 245, 241, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .play-nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            height: 64px;
+            display: flex; align-items: center; gap: 24px;
+        }
+        .play-nav-title {
+            font-family: var(--font-serif);
+            font-weight: 700; font-size: 1.1rem;
+            white-space: nowrap;
+        }
+        .play-nav-links {
+            display: flex; gap: 8px; overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .play-nav-links::-webkit-scrollbar { display: none; }
+        .play-nav-links a {
+            text-decoration: none; color: var(--text-secondary);
+            font-size: 0.8rem; font-weight: 500;
+            padding: 6px 12px; border-radius: 999px;
+            white-space: nowrap; transition: all var(--transition);
+            border: 1px solid transparent;
+        }
+        .play-nav-links a:hover { color: var(--text); border-color: var(--border); }
+
+        /* ═══ BLOCOS DE DEMONSTRAÇÃO ═══ */
+        .demo {
+            min-height: 100vh;
+            padding: 120px 24px 100px;
+            display: flex; flex-direction: column; justify-content: center;
+            scroll-margin-top: 64px;
+        }
+        .demo-label {
+            text-align: center;
+            font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+        .demo-label span {
+            display: inline-block;
+            padding: 4px 10px; border: 1px solid var(--border);
+            border-radius: 999px; background: var(--white);
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ═══════════════════════════════════════════
+           V1 — LISTA DIVISÓRIA (Apple classic)
+           Linhas horizontais, sem cards, tipografia pura
+        ═══════════════════════════════════════════ */
+        .v1-list { max-width: 900px; margin: 0 auto; }
+        .v1-item {
+            display: flex; align-items: baseline; justify-content: space-between;
+            gap: 48px;
+            padding: 44px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .v1-item:first-child { border-top: 1px solid var(--border); }
+        .v1-item h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            flex-shrink: 0;
+            max-width: 320px;
+        }
+        .v1-item p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 480px;
+            text-align: left;
+        }
+        .v1-cta {
+            text-align: center; margin-top: 64px;
+            font-size: 1.1rem;
+        }
+        .v1-cta a {
+            color: var(--text); font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+        }
+
+        /* ═══════════════════════════════════════════
+           V2 — BIG NUMBERS
+           Números enormes, 3 colunas, sem bordas
+        ═══════════════════════════════════════════ */
+        .v2-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; max-width: 1100px; margin: 0 auto;
+        }
+        .v2-item { padding: 0 24px; text-align: center; }
+        .v2-num {
+            font-family: var(--font-serif);
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 700;
+            color: var(--bg-dark);
+            line-height: 1;
+            display: block;
+            margin-bottom: 24px;
+            -webkit-text-stroke: 1px rgba(0,0,0,0.18);
+            color: transparent;
+        }
+        .v2-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem; font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .v2-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem; line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           V3 — CARDS SUTIS (Apple Music / hardware)
+           Fundo branco, radius grande, sombra leve
+        ═══════════════════════════════════════════ */
+        .v3-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; max-width: 1100px; margin: 0 auto;
+        }
+        .v3-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 36px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .v3-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+        .v3-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: var(--bg-dark);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 28px;
+            font-size: 1.4rem;
+        }
+        .v3-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem; font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .v3-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem; line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           V4 — ZIGUEZAGUE (texto ↔ vídeo)
+           50/50 alternado — placeholder de vídeo 3-6s
+        ═══════════════════════════════════════════ */
+        .v4-item {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+            max-width: 1100px; margin: 0 auto 120px;
+        }
+        .v4-item:last-child { margin-bottom: 0; }
+        .v4-item:nth-child(even) .v4-media { order: -1; }
+        .v4-text h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .v4-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem; line-height: 1.7;
+        }
+        .v4-media {
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            background: var(--bg-dark);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 12px;
+            border: 1px solid var(--border);
+        }
+        .v4-play {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: var(--text);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+        }
+        .v4-dur {
+            font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        /* ═══════════════════════════════════════════
+           V5 — CARROSSEL HORIZONTAL (vídeos 3-6s)
+           Snap scroll — cada slide uma feature
+        ═══════════════════════════════════════════ */
+        .v5-track {
+            display: flex; gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 8px 4px 32px;
+            scrollbar-width: none;
+        }
+        .v5-track::-webkit-scrollbar { display: none; }
+        .v5-slide {
+            scroll-snap-align: center;
+            flex: 0 0 340px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        }
+        .v5-media {
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            background: var(--bg-dark);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 8px;
+            margin-bottom: 20px;
+        }
+        .v5-play {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--text); color: var(--white);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .v5-slide h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem; font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .v5-slide p {
+            color: var(--text-secondary);
+            font-size: 0.88rem; line-height: 1.6;
+        }
+        .v5-hint {
+            text-align: center; margin-top: 16px;
+            font-size: 0.8rem; color: var(--gray);
+        }
+
+        /* ═══════════════════════════════════════════
+           V6 — GRID TIPOGRÁFICO PURO (Apple News)
+           Uma coluna, texto gigante, sem nada mais
+        ═══════════════════════════════════════════ */
+        .v6-wrap { max-width: 900px; margin: 0 auto; }
+        .v6-item { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        .v6-item h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .v6-item p {
+            color: var(--text-secondary);
+            font-size: 1.1rem; line-height: 1.7;
+            max-width: 640px;
+        }
+        .v6-item .v6-kicker {
+            font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        /* ═══ RESPONSIVO ═══ */
+        @media (max-width: 768px) {
+            .v1-item { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .v2-grid { grid-template-columns: 1fr; gap: 48px; }
+            .v3-grid { grid-template-columns: 1fr; }
+            .v4-item { grid-template-columns: 1fr; gap: 32px; }
+            .v4-item:nth-child(even) .v4-media { order: 0; }
+            .v5-slide { flex-basis: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="play-nav">
+        <div class="play-nav-inner">
+            <span class="play-nav-title">Layouts · Thinker</span>
+            <div class="play-nav-links">
+                <a href="#v1">01 Lista</a>
+                <a href="#v2">02 Big Numbers</a>
+                <a href="#v3">03 Cards</a>
+                <a href="#v4">04 Zigzag + Vídeo</a>
+                <a href="#v5">05 Carrossel</a>
+                <a href="#v6">06 Tipográfico</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ V1 — LISTA DIVISÓRIA ═══ -->
+    <section class="demo" id="v1">
+        <div class="demo-label"><span>Variação 01 — Lista divisória</span></div>
+        <div class="container">
+            <div class="v1-list">
+                <div class="v1-item">
+                    <h3>Seu tempo, de volta</h3>
+                    <p>As horas que você gastava grindando rating agora são suas. A conta joga, evolui e conquista — enquanto você vive.</p>
+                </div>
+                <div class="v1-item">
+                    <h3>Rating que sobe sozinho</h3>
+                    <p>Acordou? Já subiu. Dormiu? Subiu de novo. Evolução constante, natural e consistente — todo santo dia.</p>
+                </div>
+                <div class="v1-item">
+                    <h3>Reputação construída</h3>
+                    <p>Pódios, troféus e um histórico que conta a história de um jogador de elite. Sem ninguém desconfiar de nada.</p>
+                </div>
+            </div>
+            <div class="v1-cta"><a href="#">Conheça o Thinker Chess →</a></div>
+        </div>
+    </section>
+
+    <!-- ═══ V2 — BIG NUMBERS ═══ -->
+    <section class="demo" id="v2">
+        <div class="demo-label"><span>Variação 02 — Big numbers</span></div>
+        <div class="container">
+            <div class="v2-grid">
+                <div class="v2-item">
+                    <span class="v2-num">01</span>
+                    <h3>Jogue sem jogar</h3>
+                    <p>Precisão de elite, timing natural. Você colhe o resultado — sem mover um dedo.</p>
+                </div>
+                <div class="v2-item">
+                    <span class="v2-num">02</span>
+                    <h3>Conheça antes</h3>
+                    <p>Cada oponente é mapeado antes do confronto. A vitória começa antes da partida.</p>
+                </div>
+                <div class="v2-item">
+                    <span class="v2-num">03</span>
+                    <h3>Invisível</h3>
+                    <p>Streams, prints, gravações: nada revela que algo está rodando.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ V3 — CARDS SUTIS ═══ -->
+    <section class="demo" id="v3">
+        <div class="demo-label"><span>Variação 03 — Cards sutis</span></div>
+        <div class="container">
+            <div class="v3-grid">
+                <div class="v3-card">
+                    <div class="v3-icon">♟</div>
+                    <h3>Jogue sem jogar</h3>
+                    <p>Precisão de elite e timing natural em cada lance. Você colhe o resultado — sem mover um dedo.</p>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-icon">◎</div>
+                    <h3>Conheça antes</h3>
+                    <p>Cada oponente é mapeado antes do confronto: aberturas, fraquezas, padrões de erro.</p>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-icon">◐</div>
+                    <h3>Invisível</h3>
+                    <p>Streams, prints, gravações: nada revela que algo está rodando. Sua conta é um jogador de elite real.</p>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-icon">⛨</div>
+                    <h3>Proteção eterna</h3>
+                    <p>Se algo der errado, a recuperação é automática. Sua evolução é garantida.</p>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-icon">★</div>
+                    <h3>Reputação automática</h3>
+                    <p>Top de rankings, pódios, histórico impecável. Sua conta constrói a própria fama.</p>
+                </div>
+                <div class="v3-card">
+                    <div class="v3-icon">⚙</div>
+                    <h3>Controle total</h3>
+                    <p>Ajuste tudo em tempo real por um painel externo — sem nunca tocar na plataforma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ V4 — ZIGUEZAGUE + VÍDEO ═══ -->
+    <section class="demo" id="v4">
+        <div class="demo-label"><span>Variação 04 — Zigzag texto ↔ vídeo</span></div>
+        <div class="container">
+            <div class="v4-item">
+                <div class="v4-text">
+                    <h3>Jogue sem jogar</h3>
+                    <p>Precisão de elite e timing natural em cada lance. Você colhe o resultado — sem mover um dedo.</p>
+                </div>
+                <div class="v4-media">
+                    <div class="v4-play">▶</div>
+                    <span class="v4-dur">vídeo · 4s</span>
+                </div>
+            </div>
+            <div class="v4-item">
+                <div class="v4-text">
+                    <h3>Conheça antes de jogar</h3>
+                    <p>Cada oponente é mapeado antes do confronto: aberturas, fraquezas, padrões de erro. A vitória começa antes da partida.</p>
+                </div>
+                <div class="v4-media">
+                    <div class="v4-play">▶</div>
+                    <span class="v4-dur">vídeo · 5s</span>
+                </div>
+            </div>
+            <div class="v4-item">
+                <div class="v4-text">
+                    <h3>Invisível para qualquer um</h3>
+                    <p>Streams, prints, gravações: nada revela que algo está rodando. Sua conta é, e parece, um jogador de elite real.</p>
+                </div>
+                <div class="v4-media">
+                    <div class="v4-play">▶</div>
+                    <span class="v4-dur">vídeo · 3s</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ V5 — CARROSSEL HORIZONTAL ═══ -->
+    <section class="demo" id="v5">
+        <div class="demo-label"><span>Variação 05 — Carrossel de vídeos</span></div>
+        <div class="container">
+            <div class="v5-track">
+                <div class="v5-slide">
+                    <div class="v5-media"><div class="v5-play">▶</div><span class="v4-dur">4s</span></div>
+                    <h3>Auto Move</h3>
+                    <p>Os lances acontecem sozinhos, com timing humano. Enquanto você assiste.</p>
+                </div>
+                <div class="v5-slide">
+                    <div class="v5-media"><div class="v5-play">▶</div><span class="v4-dur">5s</span></div>
+                    <h3>Scout</h3>
+                    <p>O oponente mapeado antes do confronto. Fraquezas expostas em segundos.</p>
+                </div>
+                <div class="v5-slide">
+                    <div class="v5-media"><div class="v5-play">▶</div><span class="v4-dur">3s</span></div>
+                    <h3>Ghost Mode</h3>
+                    <p>Streams e prints limpos. Nada revela que algo está rodando.</p>
+                </div>
+                <div class="v5-slide">
+                    <div class="v5-media"><div class="v5-play">▶</div><span class="v4-dur">6s</span></div>
+                    <h3>Puzzle Farmer</h3>
+                    <p>Top global de táticas. Reputação construída automaticamente.</p>
+                </div>
+                <div class="v5-slide">
+                    <div class="v5-media"><div class="v5-play">▶</div><span class="v4-dur">4s</span></div>
+                    <h3>Radar Bot</h3>
+                    <p>Ameaças e motivos ocultos visíveis em tempo real. Veja o que ninguém vê.</p>
+                </div>
+            </div>
+            <div class="v5-hint">← arraste para ver mais →</div>
+        </div>
+    </section>
+
+    <!-- ═══ V6 — GRID TIPOGRÁFICO PURO ═══ -->
+    <section class="demo" id="v6">
+        <div class="demo-label"><span>Variação 06 — Tipográfico puro</span></div>
+        <div class="container">
+            <div class="v6-wrap">
+                <div class="v6-item">
+                    <span class="v6-kicker">Tempo</span>
+                    <h3>O jogo acontece no fundo. A vida, na frente.</h3>
+                    <p>Enquanto você dorme, estuda ou trabalha, sua conta evolui sozinha — com o estilo de um jogador de elite.</p>
+                </div>
+                <div class="v6-item">
+                    <span class="v6-kicker">Resultado</span>
+                    <h3>Acordou? Seu rating já subiu.</h3>
+                    <p>Evolução constante, natural e consistente. Todo santo dia, sem exceção.</p>
+                </div>
+                <div class="v6-item">
+                    <span class="v6-kicker">Reputação</span>
+                    <h3>Pódios e troféus que falam por você.</h3>
+                    <p>Um histórico impecável que conta a história de um jogador de elite — construído automaticamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

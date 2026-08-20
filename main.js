@@ -31,17 +31,16 @@
         nav.innerHTML = `
             <div class="navbar-inner container">
                 <a href="#" class="navbar-logo">
-                    <img src="Imagem cavaleiro/e42211ed-581a-4057-8e9e-d391c7c636db.png" alt="Thinker Chess" class="navbar-logo-img">
+                    <img src="Imagem cavaleiro/logo-transparente.png" alt="Thinker Chess" class="navbar-logo-img">
                     <span>Thinker Chess</span>
                 </a>
                 <div class="navbar-links">
-                    <a href="#recursos">Recursos</a>
+                    <a href="#recursos">A transformação</a>
+                    <a href="#features">O que muda</a>
                     <a href="#planos">Planos</a>
-                    <a href="#features">Features</a>
                     <a href="#sobre">Sobre</a>
                 </div>
                 <div class="navbar-actions">
-                    <a href="${DISCORD_URL}" target="_blank" class="btn-text">Entrar na comunidade <span class="arrow">→</span></a>
                     <a href="${DISCORD_URL}" target="_blank" class="btn-primary">Entrar no Discord <span class="arrow">→</span></a>
                 </div>
                 <button class="navbar-toggle" aria-label="Menu">
@@ -74,14 +73,18 @@
             <div class="container hero-inner">
                 <div class="hero-content fade-in">
                     <h1 class="hero-headline">
-                        <span class="line">Pense <em>Melhor,</em></span>
-                        <span class="line">Jogue <em>Melhor</em></span>
+                        <span class="line">Acorde com um <em>rating novo</em></span>
+                        <span class="line">todo santo dia</span>
                     </h1>
-                    <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg">
-                        Entrar no Discord <span class="arrow">→</span>
-                    </a>
+                    <p class="hero-sub">Enquanto você dorme, estuda ou vive a sua vida, o Thinker Chess joga por você. Sua conta evolui sozinha — com o timing, o estilo e a precisão de um jogador de elite.</p>
+                    <div class="hero-cta">
+                        <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg btn-green">
+                            Quero meu rating no automático <span class="arrow">→</span>
+                        </a>
+                        <a href="#como-funciona" class="btn-secondary btn-lg">Ver como funciona</a>
+                    </div>
                 </div>
-                <div class="hero-illustration fade-in">
+                <div class="hero-media fade-in">
                     <img src="Imagem cavaleiro/knight-transparent.png" alt="Cavaleiro medieval montado em cavalo a caminho de um castelo" class="hero-img">
                 </div>
             </div>
@@ -89,39 +92,25 @@
         app.appendChild(section);
     }
 
-    /* ── RECURSOS ── */
-    function renderRecursos() {
+    /* ── PROVA SOCIAL ── */
+    function renderProvaSocial() {
         const data = [
-            {
-                title: 'Automação Inteligente',
-                desc: 'Jogue sem esforço. O assistente executa lances automaticamente com timing natural, calibrado para o seu nível de rating.'
-            },
-            {
-                title: 'Inteligência de Adversário',
-                desc: 'Conheça seu oponente antes mesmo da primeira jogada. Mapeamento de aberturas favoritas, fraquezas táticas e padrões de erro em tempo real.'
-            },
-            {
-                title: 'Gestão de Conta',
-                desc: 'Monitore sua evolução com métricas profundas. Precisão por abertura, desempenho em finais e gestão de tempo num dashboard completo.'
-            },
-            {
-                title: 'Automação de Torneios',
-                desc: 'Participe de arenas e torneios sem esforço. Entrada automática, gestão de rodadas e acúmulo de troféus no piloto automático.'
-            }
+            { icon: '♟', title: '19 módulos', desc: 'de automação em um só assistente' },
+            { icon: '★', title: '100% invisível', desc: 'anti-detecção ativa em toda partida' },
+            { icon: '♛', title: '24/7', desc: 'evoluindo enquanto você vive' }
         ];
 
-        const section = el('section', { className: 'section recursos', id: 'recursos' });
+        const section = el('section', { className: 'section proof', id: 'proof' });
         section.innerHTML = `
             <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Tudo que você precisa para dominar o jogo</h2>
-                    <p class="section-sub">O Thinker Chess opera em três camadas simultâneas para garantir sua evolução constante.</p>
-                </div>
-                <div class="recursos-grid">
-                    ${data.map(r => `
-                        <div class="recurso-card fade-in">
-                            <h3>${r.title}</h3>
-                            <p>${r.desc}</p>
+                <div class="proof-grid">
+                    ${data.map(p => `
+                        <div class="proof-card fade-in">
+                            <span class="proof-icon">${p.icon}</span>
+                            <div class="proof-body">
+                                <h3>${p.title}</h3>
+                                <p>${p.desc}</p>
+                            </div>
                         </div>
                     `).join('')}
                 </div>
@@ -130,32 +119,82 @@
         app.appendChild(section);
     }
 
-    /* ── FEATURES ── */
+    /* ── RECURSOS (A TRANSFORMAÇÃO) ── */
+    function renderRecursos() {
+        const data = [
+            {
+                title: 'Seu tempo, de volta',
+                desc: 'As horas que você gastava grindando rating agora são suas. A conta joga, evolui e conquista — enquanto você vive.',
+                color: '#f0f8fa'
+            },
+            {
+                title: 'Rating que sobe sozinho',
+                desc: 'Acordou? Já subiu. Dormiu? Subiu de novo. Evolução constante, natural e consistente — todo santo dia.',
+                color: '#e7eee2'
+            },
+            {
+                title: 'Reputação construída por você',
+                desc: 'Pódios, troféus e um histórico que conta a história de um jogador de elite. Sem ninguém desconfiar de nada.',
+                color: '#ffede0'
+            },
+            {
+                title: 'O jogo no fundo, a vida na frente',
+                desc: 'Você não acompanha partida nenhuma. O Thinker Chess cuida de tudo em segundo plano — e entrega resultado.',
+                color: '#f5f3f1'
+            }
+        ];
+
+        const section = el('section', { className: 'section recursos', id: 'recursos' });
+        section.innerHTML = `
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Antes, você grindava. Agora, você evolui.</h2>
+                    <p class="section-sub">O xadrez online nunca mais vai tomar seu tempo. Ele vai devolver.</p>
+                </div>
+                <div class="feature-rows">
+                    ${data.map((r, i) => `
+                        <div class="feature-row fade-in ${i % 2 ? 'reverse' : ''}">
+                            <div class="feature-media" style="background:${r.color}">
+                                <img src="Imagem cavaleiro/knight-transparent.png" alt="" class="feature-media-img">
+                            </div>
+                            <div class="feature-text">
+                                <h3>${r.title}</h3>
+                                <p>${r.desc}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        app.appendChild(section);
+    }
+
+    /* ── FEATURES (BENEFÍCIOS DE VIDA) ── */
     function renderFeatures() {
         const data = [
             {
-                title: 'Scout do Oponente',
-                desc: 'Analise as últimas partidas do adversário por cor, abertura e horário. Saiba onde ele erra antes de começar.'
+                title: 'Jogue sem jogar',
+                desc: 'O assistente executa cada lance com precisão de elite e timing natural. Você colhe o resultado — sem mover um dedo.'
             },
             {
-                title: 'Radar Bot',
-                desc: 'Overlay tático com mapas de calor de ameaças e motivos táticos ocultos em tempo real.'
+                title: 'Conheça antes de jogar',
+                desc: 'Cada oponente é mapeado antes do confronto. Aberturas, fraquezas, padrões de erro — a vitória começa antes da partida.'
             },
             {
-                title: 'Opening Book',
-                desc: 'Comece sempre em terreno conhecido com variação sistemática para um repertório imprevisível.'
+                title: 'Invisível para qualquer um',
+                desc: 'Streams, prints, gravações: nada revela que algo está rodando. Sua conta parece, e é, um jogador de elite real.'
             },
             {
-                title: 'Comeback Mode',
-                desc: 'Em posições críticas, o assistente escolhe dinamicamente o perfil ideal para a virada.'
+                title: 'Proteção que nunca dorme',
+                desc: 'Se algo der errado, a recuperação é automática. Você nunca começa do zero — sua evolução é garantida.'
             },
             {
-                title: 'Puzzle Farmer',
-                desc: 'Automatize sua escalada no ranking de táticas com resolução automática de Puzzle Rush e Puzzle Battle.'
+                title: 'Reputação automática',
+                desc: 'Top de rankings de táticas, pódios em torneios, histórico impecável. Sua conta constrói a própria fama.'
             },
             {
-                title: 'External Config TC',
-                desc: 'Painel de controle externo para ajustar tudo em tempo real sem tocar na plataforma.'
+                title: 'Controle total, zero esforço',
+                desc: 'Ajuste tudo em tempo real por um painel externo — sem nunca tocar na plataforma de jogo.'
             }
         ];
 
@@ -163,14 +202,56 @@
         section.innerHTML = `
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">Recursos que fazem a diferença</h2>
-                    <p class="section-sub">19 módulos especializados, cada um construído para um aspecto específico da sua jornada no xadrez.</p>
+                    <h2 class="section-title">Sua conta vira um ativo que trabalha por você</h2>
+                    <p class="section-sub">Enquanto outros grindam horas por dia, você colhe os frutos — sem esforço, sem rastro.</p>
                 </div>
-                <div class="features-grid">
-                    ${data.map(f => `
-                        <div class="feature-card fade-in">
+                <div class="features-list">
+                    ${data.map((f, i) => `
+                        <div class="feature-item fade-in">
+                            <span class="feature-num">${String(i + 1).padStart(2, '0')}</span>
                             <h3>${f.title}</h3>
                             <p>${f.desc}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        app.appendChild(section);
+    }
+
+/* ── COMO FUNCIONA ── */
+    function renderComoFunciona() {
+        const steps = [
+            {
+                num: '01',
+                title: 'Conecte sua conta',
+                desc: 'Instale em minutos e conecte a sua conta do Chess.com. Sem configuração complicada.'
+            },
+            {
+                num: '02',
+                title: 'Escolha seu ritmo',
+                desc: 'Defina o nível que você quer alcançar. O assistente calibra tudo sozinho a partir daí.'
+            },
+            {
+                num: '03',
+                title: 'Viva sua vida',
+                desc: 'Pronto. Enquanto você faz o que quiser, sua conta joga, evolui e constrói reputação.'
+            }
+        ];
+
+        const section = el('section', { className: 'section como-funciona', id: 'como-funciona' });
+        section.innerHTML = `
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Três passos. Zero esforço.</h2>
+                    <p class="section-sub">Do zero ao automático em menos tempo do que você leva pra preparar um café.</p>
+                </div>
+                <div class="steps-line">
+                    ${steps.map((s, i) => `
+                        <div class="step-item fade-in">
+                            <span class="step-num">${s.num}</span>
+                            <h3>${s.title}</h3>
+                            <p>${s.desc}</p>
                         </div>
                     `).join('')}
                 </div>
@@ -212,8 +293,8 @@
         section.innerHTML = `
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">Escolha seu plano</h2>
-                    <p class="section-sub">Do jogador casual ao competidor de elite — há um plano para cada nível de ambição.</p>
+                    <h2 class="section-title">Escolha o seu nível de domínio</h2>
+                    <p class="section-sub">Menos que o preço de uma aula de xadrez — com resultados que nenhum coach pode garantir.</p>
                 </div>
                 <div class="planos-grid">
                     ${plans.map(p => `
@@ -244,14 +325,15 @@
         section.innerHTML = `
             <div class="container">
                 <div class="sobre-content fade-in">
-                    <h2 class="section-title">Por que o Thinker Chess existe</h2>
-                    <p>O xadrez sempre foi um jogo de preparação. Os grandes campeões não vencem apenas no tabuleiro — vencem antes, no estudo, na análise, na estratégia. O Thinker Chess nasceu para democratizar esse nível de preparação, colocando na mão de qualquer jogador as mesmas ferramentas que antes só estavam disponíveis para quem tinha acesso a coaches de elite.</p>
-                    <p>Somos uma equipe pequena, obcecada por xadrez e por tecnologia. Cada módulo foi construído pensando em um problema real — e em como resolvê-lo da forma mais elegante possível.</p>
+                    <h2 class="section-title">Você não quer jogar mais xadrez. Você quer evoluir nele.</h2>
+                    <p>O caminho tradicional exige anos de grind, milhares de partidas e um sacrifício de tempo que a maioria das pessoas não pode pagar. E mesmo assim, sem garantia de resultado.</p>
+                    <p>O Thinker Chess nasceu para devolver esse tempo. Acreditamos que a evolução no xadrez deveria ser um ativo — algo que cresce sozinho, em segundo plano, enquanto você vive a vida que importa.</p>
+                    <p>Não é sobre automatizar um jogo. É sobre automatizar o seu progresso.</p>
                 </div>
                 <div class="sobre-cta fade-in">
-                    <p>Pronto para jogar no próximo nível?</p>
+                    <p>Daqui a um mês, sua conta pode estar em outro patamar. Ou pode continuar onde está.</p>
                     <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg">
-                        Entrar no Discord <span class="arrow">→</span>
+                        Começar agora <span class="arrow">→</span>
                     </a>
                 </div>
             </div>
@@ -260,21 +342,85 @@
     }
 
     /* ── FOOTER ── */
+    const FOOTER_COLUMNS = [
+        {
+            title: 'Produto',
+            links: [
+                { label: 'Como funciona', href: '#como-funciona' },
+                { label: 'A transformação', href: '#recursos' },
+                { label: 'O que muda', href: '#features' },
+                { label: 'Planos', href: '#planos' }
+            ]
+        },
+        {
+            title: 'Recursos',
+            links: [
+                { label: 'Prova social', href: '#proof' },
+                { label: 'Sobre', href: '#sobre' },
+                { label: 'Sistema', href: '#sobre' },
+                { label: 'Status', href: '#sobre' }
+            ]
+        },
+        {
+            title: 'Empresa',
+            links: [
+                { label: 'Sobre', href: '#sobre' },
+                { label: 'Discord', href: DISCORD_URL, external: true },
+                { label: 'Termos', href: '#sobre' }
+            ]
+        }
+    ];
+
+    const FOOTER_SOCIAL = [
+        {
+            label: 'Discord',
+            href: DISCORD_URL,
+            icon: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>'
+        },
+        {
+            label: 'X',
+            href: '#',
+            icon: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
+        },
+        {
+            label: 'Instagram',
+            href: '#',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>'
+        }
+    ];
+
     function renderFooter() {
         const footer = el('footer', { className: 'footer' });
         footer.innerHTML = `
             <div class="container footer-inner">
-                <div class="footer-brand">
-                    <img src="Imagem cavaleiro/e42211ed-581a-4057-8e9e-d391c7c636db.png" alt="Thinker Chess" class="footer-logo-img">
-                    <span>Thinker Chess</span>
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="#" class="footer-logo">
+                            <img src="Imagem cavaleiro/logo-transparente.png" alt="Thinker Chess" class="footer-logo-img">
+                            <span>Thinker Chess</span>
+                        </a>
+                        <p class="footer-tagline">Pense melhor. Jogue melhor. Enquanto você vive, sua conta evolui.</p>
+                        <p class="footer-status"><span class="footer-status-dot"></span>Sistema operacional — 24/7</p>
+                    </div>
+                    <div class="footer-columns">
+                        ${FOOTER_COLUMNS.map(col => `
+                            <div class="footer-col">
+                                <h4>${col.title}</h4>
+                                ${col.links.map(l => `
+                                    <a href="${l.href}" ${l.external ? 'target="_blank" rel="noopener"' : ''}>${l.label}</a>
+                                `).join('')}
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="${DISCORD_URL}" target="_blank">Discord</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="#planos">Planos</a>
-                </div>
-                <div class="footer-copy">
-                    © 2026 Thinker Chess. Todos os direitos reservados.
+                <div class="footer-hairline" aria-hidden="true"></div>
+                <div class="footer-bottom">
+                    <p class="footer-copy">© 2026 Thinker Chess. Todos os direitos reservados.</p>
+                    <div class="footer-social">
+                        ${FOOTER_SOCIAL.map(s => `
+                            <a href="${s.href}" ${s.href !== '#' ? 'target="_blank" rel="noopener"' : ''} aria-label="${s.label}" class="footer-social-link">${s.icon}</a>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
         `;
@@ -305,14 +451,16 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    background: rgba(248, 245, 241, 0.72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .navbar-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 144px;
     position: relative;
 }
 .navbar-logo {
@@ -325,10 +473,9 @@
     flex-shrink: 0;
 }
 .navbar-logo-img {
-    height: 52px;
+    height: 128px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply;
 }
 .navbar-links {
     display: flex;
@@ -387,24 +534,6 @@
 .btn-primary:hover .arrow {
     transform: translateX(3px);
 }
-.btn-text {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: color var(--transition);
-}
-.btn-text:hover {
-    color: var(--text);
-}
-.btn-text .arrow {
-    transition: transform var(--transition);
-}
-.btn-text:hover .arrow {
-    transform: translateX(3px);
-}
 .btn-lg {
     padding: 16px 32px;
     font-size: 1rem;
@@ -416,8 +545,8 @@
 
 /* ── HERO ── */
 .hero {
-    padding-top: 140px;
-    padding-bottom: 60px;
+    padding-top: 180px;
+    padding-bottom: 80px;
     overflow: hidden;
 }
 .hero-inner {
@@ -427,15 +556,22 @@
     text-align: center;
 }
 .hero-content {
-    max-width: 800px;
-    margin-bottom: 48px;
+    max-width: 860px;
+    margin-bottom: 64px;
 }
 .hero-headline {
     font-family: var(--font-serif);
     font-size: clamp(3rem, 7vw, 6rem);
     line-height: 1.05;
     font-weight: 700;
-    margin-bottom: 36px;
+    margin-bottom: 48px;
+}
+.hero-sub {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
 }
 .hero-headline .line {
     display: block;
@@ -531,6 +667,45 @@
 .feature-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* ── COMO FUNCIONA ── */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.step-card {
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: left;
+    transition: border-color var(--transition);
+    position: relative;
+}
+.step-card:hover {
+    border-color: var(--text);
+}
+.step-num {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-light);
+    margin-bottom: 16px;
+}
+.step-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.step-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
     line-height: 1.7;
 }
 
@@ -630,45 +805,128 @@
 
 /* ── FOOTER ── */
 .footer {
-    background: var(--bg-dark);
-    padding: 48px 0;
-    margin-top: 40px;
+    background: #F8F5F1;
+    padding: 0;
+    margin-top: 0;
 }
 .footer-inner {
+    max-width: 1216px;
+    margin: 0 auto;
+    padding: 80px 48px 48px;
+}
+.footer-top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 120px;
 }
 .footer-brand {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 0 0 320px;
+}
+.footer-logo {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 1rem;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #1A1A1A;
+    letter-spacing: -0.02em;
 }
 .footer-logo-img {
     height: 44px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply;
 }
-.footer-links {
+.footer-tagline {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #6E6E73;
+}
+.footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    color: #29CC57;
+    margin-top: 8px;
+}
+.footer-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #29CC57;
+    box-shadow: 0 0 0 0 rgba(41, 204, 87, 0.6);
+    animation: footer-pulse 2s infinite;
+}
+@keyframes footer-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(41, 204, 87, 0.45); }
+    70% { box-shadow: 0 0 0 6px rgba(41, 204, 87, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(41, 204, 87, 0); }
+}
+.footer-columns {
     display: flex;
-    gap: 28px;
+    flex: 1;
+    gap: 0;
 }
-.footer-links a {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    transition: color var(--transition);
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
 }
-.footer-links a:hover {
-    color: var(--text);
+.footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8E8E93;
+    margin-bottom: 12px;
+}
+.footer-col a {
+    font-size: 0.875rem;
+    color: #6E6E73;
+    transition: color 200ms ease-out;
+    padding: 2px 0;
+}
+.footer-col a:hover {
+    color: #1A1A1A;
+}
+.footer-hairline {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin-top: 64px;
+}
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
 }
 .footer-copy {
-    font-size: 0.8rem;
-    color: var(--gray);
+    font-size: 0.75rem;
+    color: #8E8E93;
+}
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: #8E8E93;
+    transition: color 200ms ease-out, background-color 200ms ease-out;
+}
+.footer-social-link:hover {
+    color: #1A1A1A;
+    background: rgba(0, 0, 0, 0.06);
 }
 
 /* ── RESPONSIVE ── */
@@ -709,7 +967,7 @@
         padding: 80px 0;
     }
     .hero {
-        padding-top: 120px;
+        padding-top: 150px;
     }
 }
 
@@ -724,13 +982,15 @@
     .navbar-actions {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 144px;
         left: 0;
         width: 100%;
-        background: var(--bg);
+        background: rgba(248, 245, 241, 0.95);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
         flex-direction: column;
         padding: 24px;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         gap: 16px;
         align-items: center;
         transform: none;
@@ -746,9 +1006,6 @@
         font-size: 1rem;
         padding: 8px 0;
     }
-    .navbar-actions .btn-text {
-        font-size: 1rem;
-    }
     .navbar-actions .btn-primary {
         width: 100%;
         justify-content: center;
@@ -757,8 +1014,8 @@
 
     /* Hero */
     .hero {
-        padding-top: 110px;
-        padding-bottom: 40px;
+        padding-top: 130px;
+        padding-bottom: 48px;
     }
     .hero-content {
         max-width: 100%;
@@ -767,6 +1024,10 @@
     .hero-headline {
         font-size: clamp(2.4rem, 9vw, 3.5rem);
         margin-bottom: 28px;
+    }
+    .hero-sub {
+        font-size: 1rem;
+        margin-bottom: 32px;
     }
     .hero-img {
         max-width: 100%;
@@ -804,6 +1065,15 @@
         padding: 28px 24px;
     }
 
+    /* Como Funciona */
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .step-card {
+        padding: 28px 24px;
+    }
+
     /* Planos */
     .planos-grid {
         grid-template-columns: 1fr;
@@ -824,16 +1094,8 @@
     }
 
     /* Footer */
-    .footer {
-        padding: 36px 0;
-    }
     .footer-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 16px;
-    }
-    .footer-links {
-        gap: 20px;
+        padding: 48px 24px 32px;
     }
 }
 
@@ -845,28 +1107,28 @@
 
     /* Navbar */
     .navbar-inner {
-        height: 64px;
+        height: 96px;
     }
     .navbar-logo span {
         font-size: 1rem;
     }
     .navbar-logo-img {
-        height: 44px;
+        height: 80px;
     }
     .navbar-links,
     .navbar-actions {
-        top: 64px;
+        top: 96px;
         padding: 20px 16px;
     }
 
     /* Hero */
     .hero {
-        padding-top: 96px;
-        padding-bottom: 32px;
+        padding-top: 116px;
+        padding-bottom: 36px;
     }
     .hero-headline {
         font-size: clamp(2rem, 8vw, 3rem);
-        margin-bottom: 24px;
+        margin-bottom: 28px;
     }
     .hero-content {
         margin-bottom: 24px;
@@ -919,20 +1181,11 @@
     }
 
     /* Footer */
-    .footer {
-        padding: 28px 0;
+    .footer-inner {
+        padding: 40px 20px 28px;
     }
-    .footer-brand {
-        font-size: 0.9rem;
-    }
-    .footer-links {
-        gap: 16px;
-    }
-    .footer-links a {
-        font-size: 0.85rem;
-    }
-    .footer-copy {
-        font-size: 0.75rem;
+    .footer-logo-img {
+        height: 36px;
     }
 }
 
@@ -944,8 +1197,8 @@
 
     /* Hero */
     .hero {
-        padding-top: 80px;
-        padding-bottom: 24px;
+        padding-top: 100px;
+        padding-bottom: 28px;
     }
     .hero-headline {
         font-size: clamp(1.8rem, 10vw, 2.6rem);
@@ -1011,19 +1264,13 @@
     .sobre-cta p {
         font-size: 1rem;
     }
-
-    /* Footer */
-    .footer-links {
-        flex-direction: column;
-        gap: 12px;
-    }
 }
 
 /* Landscape phones */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero {
-        padding-top: 80px;
-        padding-bottom: 20px;
+        padding-top: 100px;
+        padding-bottom: 24px;
     }
     .hero-headline {
         font-size: 2rem;
@@ -1039,6 +1286,778 @@
     .section {
         padding: 40px 0;
     }
+}
+
+/* ═══════════════════════════════════════════════════
+   BRILLIANT-STYLE OVERRIDE
+   Layout + tipografia + cores inspirados no Brilliant.org
+   ═══════════════════════════════════════════════════ */
+
+/* ── ABACATE-PAY STYLE: painéis com hairline de 1px ── */
+#app {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #E5E1DB;
+}
+.hero,
+.section,
+.footer {
+    border-radius: 12px;
+}
+.proof,
+.recursos,
+.como-funciona,
+.sobre {
+    background: #fff;
+}
+.features,
+.planos {
+    background: #F5F3F1;
+}
+
+/* ── CONTAINER ── */
+.container {
+    max-width: 1216px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* ── NAVBAR: pill flutuante ── */
+.navbar {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    z-index: 1100;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom: none;
+}
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    padding: 8px 8px 8px 24px;
+    background: #fff;
+    border: 1px solid #E4E4E4;
+    border-radius: 9999px;
+    box-shadow: none;
+    position: relative;
+}
+.navbar-logo {
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+}
+.navbar-logo-img {
+    height: 40px;
+    width: auto;
+}
+.navbar-links {
+    display: flex;
+    gap: 28px;
+    position: static;
+    transform: none;
+}
+.navbar-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 200ms ease-out;
+}
+.navbar-links a:hover {
+    color: #000;
+}
+.navbar-actions {
+    gap: 12px;
+}
+.navbar-actions .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    background: #000;
+}
+.navbar-actions .btn-primary .arrow {
+    display: none;
+}
+.navbar-actions .btn-primary:hover {
+    opacity: 0.78;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+    background: #000;
+    color: #fff;
+    border-radius: 9999px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 200ms ease-out, background-color 200ms ease-out;
+}
+.btn-primary:hover {
+    opacity: 0.78;
+}
+.btn-green {
+    background: #29CC57;
+}
+.btn-green:hover {
+    background: #23b54c;
+    opacity: 1;
+}
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #fff;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.05);
+    transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+.btn-secondary:hover {
+    background: #DCDAD8;
+    color: rgba(0, 0, 0, 0.7);
+}
+.btn-lg {
+    min-height: 56px;
+}
+
+/* ── HERO: editorial + card de mídia + padrão diagonal ── */
+.hero {
+    background: linear-gradient(to bottom, #F5F3F1 0%, #F5F3F1 55%, #FFFFFF 100%);
+    padding-top: 200px;
+    padding-bottom: 120px;
+    overflow: hidden;
+    position: relative;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48%;
+    background-image:
+        linear-gradient(30deg, transparent 48.75%, rgba(212, 200, 190, 0.85) 49.5%, rgba(212, 200, 190, 0.85) 50.5%, transparent 51.25%),
+        linear-gradient(150deg, transparent 48.75%, rgba(212, 200, 190, 0.85) 49.5%, rgba(212, 200, 190, 0.85) 50.5%, transparent 51.25%);
+    background-size: 72px 42px;
+    background-repeat: repeat;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 60%, transparent 100%);
+    pointer-events: none;
+}
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+@media (min-width: 1024px) {
+    .hero-inner {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+    .hero-content {
+        max-width: 640px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    .hero-sub {
+        margin: 0 0 40px;
+    }
+    .hero-cta {
+        justify-content: flex-start;
+    }
+}
+.hero-content {
+    max-width: 860px;
+    margin-bottom: 0;
+}
+.hero-headline {
+    font-family: var(--font-sans);
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    line-height: 1.02;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+}
+.hero-headline em {
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.35);
+    font-weight: 500;
+}
+.hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+}
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+.hero-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.hero-img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ── PROVA SOCIAL ── */
+.proof {
+    background: #fff;
+    padding: 72px 0;
+}
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.proof-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border: 1px solid #E4E4E4;
+    border-radius: 44px;
+    text-align: left;
+}
+.proof-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #E6F9DA;
+    border-radius: 9999px;
+    font-size: 1rem;
+    color: #204749;
+}
+.proof-body h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+}
+.proof-body p {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+}
+
+/* ── SECTIONS ── */
+.section {
+    padding: 110px 0;
+}
+.section-header {
+    margin-bottom: 64px;
+}
+.section-title {
+    font-family: var(--font-sans);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+.section-sub {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.6);
+    max-width: 560px;
+    line-height: 1.6;
+}
+
+/* ── RECURSOS: feature rows alternados ── */
+.recursos {
+    background: #fff;
+}
+.feature-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+    max-width: 1110px;
+    margin: 0 auto;
+}
+.feature-row {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: center;
+}
+.feature-media {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 460 / 321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.feature-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+.feature-text {
+    max-width: 443px;
+    text-align: center;
+}
+.feature-text h3 {
+    font-family: var(--font-sans);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+.feature-text p {
+    font-size: 1.05rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.7;
+}
+@media (min-width: 1024px) {
+    .feature-row {
+        flex-direction: row;
+        gap: 64px;
+    }
+    .feature-row.reverse {
+        flex-direction: row-reverse;
+    }
+    .feature-media {
+        flex: 1.1;
+    }
+    .feature-text {
+        flex: 1;
+        text-align: left;
+    }
+}
+
+/* ── FEATURES: lista editorial ── */
+.features {
+    background: #F5F3F1;
+}
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 64px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.feature-item {
+    padding: 40px 0;
+    border-bottom: 1px solid #E4E4E4;
+}
+.feature-item:nth-child(odd) {
+    border-right: 1px solid #E4E4E4;
+    padding-right: 64px;
+}
+.feature-item:nth-child(even) {
+    padding-left: 64px;
+}
+.feature-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.25);
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+}
+.feature-item h3 {
+    font-family: var(--font-sans);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+.feature-item p {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.7;
+}
+
+/* ── COMO FUNCIONA: steps tipográficos ── */
+.como-funciona {
+    background: #fff;
+}
+.steps-line {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.step-item {
+    border-top: 2px solid #E4E4E4;
+    padding-top: 28px;
+}
+.step-num {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+}
+.step-item h3 {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+.step-item p {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.7;
+}
+
+/* ── PLANOS ── */
+.planos {
+    background: #F5F3F1;
+}
+.planos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    max-width: 1110px;
+    margin: 0 auto;
+}
+.plano-card {
+    padding: 40px 32px;
+    border: 1px solid #E4E4E4;
+    border-radius: 32px;
+    background: #fff;
+}
+.plano-card.popular {
+    border: 1px solid #000;
+    border-radius: 32px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+.plano-card.popular .btn-primary {
+    background: #29CC57;
+}
+.badge {
+    background: #000;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 5px 16px;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+.plano-price .price {
+    font-family: var(--font-sans);
+    font-size: 2.8rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+/* ── SOBRE ── */
+.sobre {
+    background: #fff;
+}
+.sobre-cta p {
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+/* ── FOOTER ── */
+.footer {
+    background: #F8F5F1;
+    margin-top: 0;
+}
+.footer-logo-img {
+    filter: none;
+}
+
+/* ── FADE-IN (scroll reveal 1.5s, como o Brilliant) ── */
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── RESPONSIVE OVERRIDES ── */
+@media (max-width: 1024px) {
+    .proof-grid {
+        gap: 16px;
+    }
+    .features-list {
+        gap: 0 40px;
+    }
+    .feature-item:nth-child(odd) {
+        padding-right: 40px;
+    }
+    .feature-item:nth-child(even) {
+        padding-left: 40px;
+    }
+    .steps-line {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-inner {
+        max-width: 100%;
+        padding: 8px 8px 8px 20px;
+    }
+    .navbar-logo-img {
+        height: 36px;
+    }
+    .navbar-links,
+    .navbar-actions {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #E4E4E4;
+        border-radius: 24px;
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 1px solid #E4E4E4;
+        gap: 14px;
+        align-items: center;
+        transform: none;
+    }
+    .navbar-links.open,
+    .navbar-actions.open {
+        display: flex;
+    }
+    .navbar-toggle {
+        display: flex;
+    }
+    .navbar-links a {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+    .navbar-actions .btn-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+    .hero {
+        padding-top: 150px;
+        padding-bottom: 80px;
+    }
+    .proof-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+    }
+    .proof-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 16px;
+        padding: 24px 28px;
+    }
+    .features-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .feature-item:nth-child(odd) {
+        border-right: none;
+        padding-right: 0;
+    }
+    .feature-item:nth-child(even) {
+        padding-left: 0;
+    }
+    .steps-line {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+    }
+    .planos-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+        gap: 24px;
+    }
+    .section {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar-inner {
+        padding: 6px 6px 6px 16px;
+    }
+    .navbar-logo-img {
+        height: 32px;
+    }
+    .navbar-logo span {
+        font-size: 0.9rem;
+    }
+    .hero {
+        padding-top: 120px;
+        padding-bottom: 64px;
+    }
+    .hero-headline {
+        font-size: clamp(2.2rem, 9vw, 3rem);
+        letter-spacing: -0.03em;
+    }
+    .hero-sub {
+        font-size: 1rem;
+    }
+    .media-card {
+        border-radius: 24px;
+    }
+    .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+    .section-sub {
+        font-size: 0.95rem;
+    }
+    .feature-rows {
+        gap: 64px;
+    }
+    .feature-media {
+        aspect-ratio: 4 / 3;
+    }
+    .btn-lg {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-cta .btn-lg {
+        width: 100%;
+    }
+    .section {
+        padding: 64px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+    .hero {
+        padding-top: 104px;
+    }
+    .hero-headline {
+        font-size: clamp(1.9rem, 10vw, 2.4rem);
+    }
+    .proof-card {
+        padding: 20px 24px;
+    }
+    .section {
+        padding: 52px 0;
+    }
+}
+
+/* ── SOBRE ── */
+.sobre {
+    background: #fff;
+    text-align: center;
+}
+.sobre-content {
+    max-width: 720px;
+    margin: 0 auto 60px;
+}
+.sobre-content p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 20px;
+}
+.sobre-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.sobre-cta p {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* ── FOOTER RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 48px;
+    }
+    .footer-brand {
+        flex: none;
+        width: 100%;
+    }
+    .footer-columns {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 768px) {
+    .footer-inner {
+        padding: 48px 24px 32px;
+    }
+    .footer-columns {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .footer-hairline {
+        margin-top: 40px;
+    }
+}
+@media (max-width: 640px) {
+    .footer-inner {
+        padding: 40px 20px 28px;
+    }
+    .footer-logo {
+        font-size: 1.125rem;
+    }
+    .footer-logo-img {
+        height: 36px;
+    }
+}
+@media (max-width: 480px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
 }`;
         const style = document.createElement('style');
         style.textContent = css;
@@ -1050,8 +2069,10 @@
         injectStyles();
         renderNavbar();
         renderHero();
+        renderProvaSocial();
         renderRecursos();
         renderFeatures();
+        renderComoFunciona();
         renderPlanos();
         renderSobre();
         renderFooter();
