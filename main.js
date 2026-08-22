@@ -155,7 +155,12 @@
                     ${data.map((r, i) => `
                         <div class="feature-row fade-in ${i % 2 ? 'reverse' : ''}">
                             <div class="feature-media" style="background:${r.color}">
-                                <img src="Imagem cavaleiro/knight-transparent.png" alt="" class="feature-media-img">
+                                <div class="video-placeholder">
+                                    <div class="video-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    </div>
+                                    <span class="video-placeholder-text">Video Demo</span>
+                                </div>
                             </div>
                             <div class="feature-text">
                                 <h3>${r.title}</h3>
@@ -393,34 +398,20 @@
         const footer = el('footer', { className: 'footer' });
         footer.innerHTML = `
             <div class="container footer-inner">
-                <div class="footer-top">
-                    <div class="footer-brand">
-                        <a href="#" class="footer-logo">
-                            <img src="Imagem cavaleiro/logo-transparente.png" alt="Thinker Chess" class="footer-logo-img">
-                            <span>Thinker Chess</span>
-                        </a>
-                        <p class="footer-tagline">Pense melhor. Jogue melhor. Enquanto você vive, sua conta evolui.</p>
-                        <p class="footer-status"><span class="footer-status-dot"></span>Sistema operacional — 24/7</p>
-                    </div>
-                    <div class="footer-columns">
-                        ${FOOTER_COLUMNS.map(col => `
-                            <div class="footer-col">
-                                <h4>${col.title}</h4>
-                                ${col.links.map(l => `
-                                    <a href="${l.href}" ${l.external ? 'target="_blank" rel="noopener"' : ''}>${l.label}</a>
-                                `).join('')}
-                            </div>
-                        `).join('')}
-                    </div>
+                <div class="footer-left">
+                    <div class="footer-logo">Thinker Chess</div>
+                    <div class="footer-copy">© 2026 Thinker Chess. Todos os direitos reservados.</div>
                 </div>
-                <div class="footer-hairline" aria-hidden="true"></div>
-                <div class="footer-bottom">
-                    <p class="footer-copy">© 2026 Thinker Chess. Todos os direitos reservados.</p>
-                    <div class="footer-social">
-                        ${FOOTER_SOCIAL.map(s => `
-                            <a href="${s.href}" ${s.href !== '#' ? 'target="_blank" rel="noopener"' : ''} aria-label="${s.label}" class="footer-social-link">${s.icon}</a>
-                        `).join('')}
-                    </div>
+                <div class="footer-right">
+                    <a href="#" class="footer-link">Discord</a>
+                    <a href="#" class="footer-link">Planos</a>
+                    <a href="#" class="footer-link">Changelog</a>
+                </div>
+            </div>
+            <div class="footer-status-wrapper">
+                <div class="footer-status-badge">
+                    <span class="status-dot"></span>
+                    Status: Undetected (v2.4)
                 </div>
             </div>
         `;
@@ -805,128 +796,75 @@
 
 /* ── FOOTER ── */
 .footer {
-    background: #F8F5F1;
-    padding: 0;
-    margin-top: 0;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 64px 0 48px;
+    font-family: var(--font-sans);
 }
 .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     max-width: 1216px;
     margin: 0 auto;
-    padding: 80px 48px 48px;
+    padding: 0 48px;
 }
-.footer-top {
-    display: flex;
-    gap: 120px;
-}
-.footer-brand {
+.footer-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    flex: 0 0 320px;
+    gap: 8px;
 }
 .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: #1A1A1A;
+    font-size: 1.5rem;
+    font-weight: 700;
     letter-spacing: -0.02em;
+    color: #ffffff;
 }
-.footer-logo-img {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
+.footer-copy {
+    font-size: 0.875rem;
+    color: #a1a1aa; /* zinc-400 equivalent */
 }
-.footer-tagline {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: #6E6E73;
+.footer-right {
+    display: flex;
+    gap: 32px;
 }
-.footer-status {
+.footer-link {
+    font-size: 0.95rem;
+    color: #a1a1aa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-link:hover {
+    color: #ffffff;
+}
+.footer-status-wrapper {
+    max-width: 1216px;
+    margin: 48px auto 0;
+    padding: 0 48px;
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-status-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8125rem;
-    color: #29CC57;
-    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    background-color: #18181b; /* bg-zinc-900 */
+    border: 1px solid #27272a; /* border-zinc-800 */
+    font-size: 0.75rem;
+    color: #a1a1aa;
 }
-.footer-status-dot {
-    width: 6px;
-    height: 6px;
+.status-dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: #29CC57;
-    box-shadow: 0 0 0 0 rgba(41, 204, 87, 0.6);
-    animation: footer-pulse 2s infinite;
+    background-color: #22c55e; /* bg-green-500 */
+    animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-@keyframes footer-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(41, 204, 87, 0.45); }
-    70% { box-shadow: 0 0 0 6px rgba(41, 204, 87, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(41, 204, 87, 0); }
-}
-.footer-columns {
-    display: flex;
-    flex: 1;
-    gap: 0;
-}
-.footer-col {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex: 1;
-    min-width: 0;
-}
-.footer-col h4 {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8E8E93;
-    margin-bottom: 12px;
-}
-.footer-col a {
-    font-size: 0.875rem;
-    color: #6E6E73;
-    transition: color 200ms ease-out;
-    padding: 2px 0;
-}
-.footer-col a:hover {
-    color: #1A1A1A;
-}
-.footer-hairline {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.08);
-    margin-top: 64px;
-}
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 28px;
-}
-.footer-copy {
-    font-size: 0.75rem;
-    color: #8E8E93;
-}
-.footer-social {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.footer-social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    color: #8E8E93;
-    transition: color 200ms ease-out, background-color 200ms ease-out;
-}
-.footer-social-link:hover {
-    color: #1A1A1A;
-    background: rgba(0, 0, 0, 0.06);
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
 }
 
 /* ── RESPONSIVE ── */
@@ -1301,9 +1239,16 @@
     background: #E5E1DB;
 }
 .hero,
-.section,
-.footer {
+.section {
     border-radius: 12px;
+}
+.sobre {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.footer {
+    border-radius: 0 !important;
+    margin-top: -1px;
 }
 .proof,
 .recursos,
@@ -1528,6 +1473,39 @@
     display: block;
     object-fit: contain;
 }
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: rgba(0,0,0,0.4);
+    border: 2px dashed rgba(0,0,0,0.15);
+    border-radius: 20px;
+}
+.hero-media .video-placeholder {
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    background: rgba(0,0,0,0.03);
+    border-radius: 16px;
+}
+.video-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1A2E;
+}
+.video-placeholder-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
 
 /* ── PROVA SOCIAL ── */
 .proof {
@@ -1623,12 +1601,7 @@
     align-items: center;
     justify-content: center;
 }
-.feature-media-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-}
+
 .feature-text {
     max-width: 443px;
     text-align: center;
@@ -1796,14 +1769,8 @@
     letter-spacing: -0.02em;
 }
 
-/* ── FOOTER ── */
-.footer {
-    background: #F8F5F1;
-    margin-top: 0;
-}
-.footer-logo-img {
-    filter: none;
-}
+
+
 
 /* ── FADE-IN (scroll reveal 1.5s, como o Brilliant) ── */
 .fade-in {
@@ -2016,47 +1983,27 @@
 }
 
 /* ── FOOTER RESPONSIVE ── */
-@media (max-width: 1024px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 48px;
-    }
-    .footer-brand {
-        flex: none;
-        width: 100%;
-    }
-    .footer-columns {
-        flex-wrap: wrap;
-    }
-}
 @media (max-width: 768px) {
     .footer-inner {
-        padding: 48px 24px 32px;
-    }
-    .footer-columns {
         flex-direction: column;
         gap: 32px;
+        padding: 0 24px;
     }
-    .footer-hairline {
-        margin-top: 40px;
+    .footer-right {
+        flex-wrap: wrap;
+        gap: 20px;
     }
-}
-@media (max-width: 640px) {
-    .footer-inner {
-        padding: 40px 20px 28px;
-    }
-    .footer-logo {
-        font-size: 1.125rem;
-    }
-    .footer-logo-img {
-        height: 36px;
+    .footer-status-wrapper {
+        padding: 0 24px;
+        justify-content: flex-start;
     }
 }
 @media (max-width: 480px) {
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+    .footer-inner {
+        padding: 0 20px;
+    }
+    .footer-status-wrapper {
+        padding: 0 20px;
     }
 }`;
         const style = document.createElement('style');
