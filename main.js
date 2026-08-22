@@ -76,7 +76,7 @@
                         <span class="line">Acorde com um <em>rating novo</em></span>
                         <span class="line">todo santo dia</span>
                     </h1>
-                    <p class="hero-sub">Enquanto você dorme, estuda ou vive a sua vida, o Thinker Chess joga por você. Sua conta evolui sozinha — com o timing, o estilo e a precisão de um jogador de elite.</p>
+                    <p class="hero-sub">Operando de forma 100% invisível e segura. Enquanto você dorme, estuda ou vive a sua vida, o Thinker Chess joga por você. Sua conta evolui sozinha — com o timing, o estilo e a precisão de um jogador de elite.</p>
                     <div class="hero-cta">
                         <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg btn-green">
                             Quero meu rating no automático <span class="arrow">→</span>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="hero-media fade-in">
-                    <img src="Imagem cavaleiro/knight-transparent.png" alt="Cavaleiro medieval montado em cavalo a caminho de um castelo" class="hero-img">
+                    <img src="Imagem cavaleiro/knight-hero.png" alt="Cavaleiro medieval montado em cavalo com espada erguida" class="hero-img">
                 </div>
             </div>
         `;
@@ -878,7 +878,7 @@
         font-size: clamp(4rem, 5vw, 7rem);
     }
     .hero-img {
-        max-width: 1100px;
+        max-width: 950px;
     }
 }
 
@@ -969,6 +969,7 @@
     }
     .hero-img {
         max-width: 100%;
+        max-height: 600px;
     }
 
     /* Sections */
@@ -1218,8 +1219,10 @@
         margin-bottom: 16px;
     }
     .hero-img {
-        max-height: 50vh;
+        max-height: 40vh;
         object-fit: contain;
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
+        mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
     }
     .section {
         padding: 40px 0;
@@ -1355,10 +1358,12 @@
     opacity: 0.78;
 }
 .btn-green {
-    background: #29CC57;
+    background: #4ADE80;
+    color: #fff;
+    font-weight: 700;
 }
 .btn-green:hover {
-    background: #23b54c;
+    background: #22C55E;
     opacity: 1;
 }
 .btn-secondary {
@@ -1417,7 +1422,8 @@
 }
 @media (min-width: 1024px) {
     .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: end;
     }
     .hero-content {
         max-width: 640px;
@@ -1463,15 +1469,20 @@
 .hero-media {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
+    position: relative;
+    overflow: visible;
 }
 .hero-img {
     width: 100%;
-    max-width: 560px;
+    max-width: 780px;
     height: auto;
     display: block;
     object-fit: contain;
+    object-position: center bottom;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
+    mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
 }
 .video-placeholder {
     width: 100%;
@@ -1906,6 +1917,10 @@
     .hero-sub {
         font-size: 1rem;
     }
+    .hero-img {
+        max-width: 380px;
+        margin: 0 auto;
+    }
     .media-card {
         border-radius: 24px;
     }
@@ -1946,6 +1961,9 @@
     }
     .hero-headline {
         font-size: clamp(1.9rem, 10vw, 2.4rem);
+    }
+    .hero-img {
+        max-width: 300px;
     }
     .proof-card {
         padding: 20px 24px;
