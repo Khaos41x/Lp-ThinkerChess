@@ -81,7 +81,7 @@
                         <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg btn-green">
                             Quero meu rating no automático <span class="arrow">→</span>
                         </a>
-                        <a href="#como-funciona" class="btn-secondary btn-lg">Ver como funciona</a>
+                        <a href="#como-funciona" class="btn-secondary btn-lg">Como o sistema funciona</a>
                     </div>
                 </div>
                 <div class="hero-media fade-in">
@@ -579,7 +579,6 @@
 }
 .hero-img {
     width: 100%;
-    max-width: 900px;
     height: auto;
     display: block;
 }
@@ -878,7 +877,7 @@
         font-size: clamp(4rem, 5vw, 7rem);
     }
     .hero-img {
-        max-width: 950px;
+        max-width: none;
     }
 }
 
@@ -968,8 +967,13 @@
         margin-bottom: 32px;
     }
     .hero-img {
-        max-width: 100%;
-        max-height: 600px;
+        max-width: none;
+        max-height: none;
+    }
+    .hero-media {
+        height: 50vh;
+        min-height: 360px;
+        max-height: 500px;
     }
 
     /* Sections */
@@ -1220,9 +1224,8 @@
     }
     .hero-img {
         max-height: 40vh;
-        object-fit: contain;
-        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
-        mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 90%);
+        object-fit: cover;
+        object-position: 58% 48%;
     }
     .section {
         padding: 40px 0;
@@ -1422,7 +1425,7 @@
 }
 @media (min-width: 1024px) {
     .hero-inner {
-        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-columns: 0.75fr 1.25fr;
         align-items: end;
     }
     .hero-content {
@@ -1468,21 +1471,23 @@
 }
 .hero-media {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
+    height: 65vh;
+    min-height: 480px;
+    max-height: 720px;
 }
 .hero-img {
     width: 100%;
-    max-width: 780px;
-    height: auto;
+    height: 100%;
     display: block;
-    object-fit: contain;
-    object-position: center bottom;
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
-    mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
+    object-fit: cover;
+    object-position: 58% 48%;
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 58% 48%, black 25%, transparent 68%);
+    mask-image: radial-gradient(ellipse 85% 80% at 58% 48%, black 25%, transparent 68%);
 }
 .video-placeholder {
     width: 100%;
@@ -1918,8 +1923,13 @@
         font-size: 1rem;
     }
     .hero-img {
-        max-width: 380px;
+        max-width: none;
         margin: 0 auto;
+    }
+    .hero-media {
+        height: 45vh;
+        min-height: 300px;
+        max-height: 420px;
     }
     .media-card {
         border-radius: 24px;
@@ -1963,7 +1973,7 @@
         font-size: clamp(1.9rem, 10vw, 2.4rem);
     }
     .hero-img {
-        max-width: 300px;
+        max-width: none;
     }
     .proof-card {
         padding: 20px 24px;
