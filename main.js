@@ -274,6 +274,7 @@
                 period: '/mês',
                 yearly: 'R$290/ano',
                 features: ['Auto Move', 'Auto Queue', 'Auto Adjust Rating', 'Puzzle Farmer', 'External Config TC', 'Interface Corrigida'],
+                cta: 'Ativar plano Starter',
                 popular: false
             },
             {
@@ -282,6 +283,7 @@
                 period: '/mês',
                 yearly: 'R$690/ano',
                 features: ['Tudo do Starter', 'Opening Book Integration', 'Tournament Grinder', 'Scout do Oponente', 'Radar Bot', 'Mixer Humano', 'Modo Tilt', 'Trava de Winrate', 'Auto-Resign / Abort'],
+                cta: 'Desbloquear plano PRO',
                 popular: true
             },
             {
@@ -290,6 +292,7 @@
                 period: '/mês',
                 yearly: 'R$1.290/ano',
                 features: ['Todos os 19 módulos desbloqueados', 'Ghost Mode', 'Protocolo Fênix', 'Account Health Dashboard', 'Network & Fingerprint Spoofing', 'Comeback Mode'],
+                cta: 'Quero Acesso Completo',
                 popular: false
             }
         ];
@@ -314,7 +317,7 @@
                                 ${p.features.map(f => `<li>${f}</li>`).join('')}
                             </ul>
                             <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-full">
-                                Entrar no Discord <span class="arrow">→</span>
+                                ${p.cta} <span class="arrow">→</span>
                             </a>
                         </div>
                     `).join('')}
@@ -336,7 +339,7 @@
                     <p>Não é sobre automatizar um jogo. É sobre automatizar o seu progresso.</p>
                 </div>
                 <div class="sobre-cta fade-in">
-                    <p>Daqui a um mês, sua conta pode estar em outro patamar. Ou pode continuar onde está.</p>
+                    <p>Imagine onde sua conta pode estar daqui a 30 dias com o suporte certo. Vamos começar essa jornada hoje?</p>
                     <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg">
                         Começar agora <span class="arrow">→</span>
                     </a>
@@ -1361,13 +1364,34 @@
     opacity: 0.78;
 }
 .btn-green {
-    background: #4ADE80;
+    background: #16A34A;
     color: #fff;
     font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.25), 0 4px 14px rgba(22, 163, 74, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+.btn-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%);
+    pointer-events: none;
 }
 .btn-green:hover {
-    background: #22C55E;
-    opacity: 1;
+    background: #15803D;
+    box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.3), 0 6px 20px rgba(21, 128, 61, 0.5);
+    transform: translateY(-1px);
+}
+@keyframes btn-glow {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.25), 0 4px 14px rgba(22, 163, 74, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.15), 0 4px 20px rgba(22, 163, 74, 0.55); }
+}
+.hero-cta .btn-green {
+    animation: btn-glow 2.5s ease-in-out infinite;
+}
+.hero-cta .btn-green:hover {
+    animation: none;
 }
 .btn-secondary {
     display: inline-flex;
@@ -1652,9 +1676,17 @@
     }
 }
 
-/* ── FEATURES: lista editorial ── */
+/* ── FEATURES: lista editorial + textura quadriculada ── */
 .features {
-    background: #F5F3F1;
+    background-color: #F5F3F1;
+    background-image:
+        linear-gradient(45deg, rgba(224,221,216,0.5) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(224,221,216,0.5) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(224,221,216,0.5) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(224,221,216,0.5) 75%);
+    background-size: 80px 80px;
+    background-position: 0 0, 0 40px, 40px -40px, -40px 0;
+    background-blend-mode: overlay;
 }
 .features-list {
     display: grid;
