@@ -795,6 +795,30 @@
     font-size: 1.5rem;
     font-weight: 700;
 }
+.sobre-cta .btn-primary {
+    background: #29CC57;
+    color: #fff;
+}
+.sobre-cta .btn-primary:hover {
+    background: #22B54B;
+}
+.sobre {
+    position: relative;
+    overflow: hidden;
+}
+.sobre::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900'%3E%3Cpath d='M60,0 C90,150 30,300 70,450 C110,600 40,750 80,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M150,0 C180,180 120,360 160,540 C200,720 130,810 170,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M250,0 C280,160 220,320 260,480 C300,640 230,780 270,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M350,0 C380,140 310,280 360,420 C410,560 330,700 370,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M460,0 C490,170 420,340 470,510 C520,680 440,790 480,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M560,0 C590,150 520,300 570,450 C620,600 540,750 580,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M670,0 C700,180 630,360 680,540 C730,720 650,810 690,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M770,0 C800,140 730,280 780,420 C830,560 750,700 790,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M880,0 C910,170 840,340 890,510 C940,680 860,790 900,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M980,0 C1010,150 940,300 990,450 C1040,600 960,750 1000,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M1090,0 C1120,180 1050,360 1100,540 C1150,720 1070,810 1110,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M1190,0 C1220,140 1150,280 1200,420 C1250,560 1170,700 1210,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M1300,0 C1330,170 1260,340 1310,510 C1360,680 1280,790 1320,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M1400,0 C1430,150 1360,300 1410,450' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+.sobre > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* ── FOOTER ── */
 .footer {
@@ -1261,7 +1285,6 @@
 }
 .proof,
 .recursos,
-.como-funciona,
 .sobre {
     background: #fff;
 }
@@ -1707,12 +1730,16 @@
     padding-left: 64px;
 }
 .feature-num {
-    display: block;
+    display: inline-block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.25);
+    color: #65B307;
     margin-bottom: 12px;
     letter-spacing: 0.08em;
+    background: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .feature-item h3 {
     font-family: var(--font-sans);
@@ -1743,13 +1770,17 @@
     padding-top: 28px;
 }
 .step-num {
-    display: block;
+    display: inline-block;
     font-family: var(--font-sans);
     font-size: 1.1rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.25);
+    color: #65B307;
     letter-spacing: 0.08em;
     margin-bottom: 14px;
+    background: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .step-item h3 {
     font-family: var(--font-sans);
