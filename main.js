@@ -31,7 +31,7 @@
         nav.innerHTML = `
             <div class="navbar-inner container">
                 <a href="#" class="navbar-logo">
-                    <img src="Imagem cavaleiro/logo-transparente.png" alt="Thinker Chess" class="navbar-logo-img">
+                    <img src="Imagem cavaleiro/logo-cropped.png" alt="Thinker Chess" class="navbar-logo-img">
                     <span>Thinker Chess</span>
                 </a>
                 <div class="navbar-links">
@@ -467,7 +467,7 @@
     flex-shrink: 0;
 }
 .navbar-logo-img {
-    height: 128px;
+    height: 48px;
     width: auto;
     object-fit: contain;
 }
@@ -1083,7 +1083,7 @@
         font-size: 1rem;
     }
     .navbar-logo-img {
-        height: 80px;
+        height: 36px;
     }
     .navbar-links,
     .navbar-actions {
@@ -1338,7 +1338,7 @@
     color: #000;
 }
 .navbar-logo-img {
-    height: 40px;
+    height: 48px;
     width: auto;
 }
 .navbar-links {
@@ -1887,7 +1887,7 @@
         padding: 8px 8px 8px 20px;
     }
     .navbar-logo-img {
-        height: 36px;
+        height: 40px;
     }
     .navbar-links,
     .navbar-actions {
@@ -1969,7 +1969,7 @@
         padding: 6px 6px 6px 16px;
     }
     .navbar-logo-img {
-        height: 32px;
+        height: 40px;
     }
     .navbar-logo span {
         font-size: 0.9rem;
