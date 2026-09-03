@@ -31,7 +31,7 @@
         nav.innerHTML = `
             <div class="navbar-inner container">
                 <a href="#" class="navbar-logo">
-                    <img src="Imagem cavaleiro/logo-transparente.png" alt="Thinker Chess" class="navbar-logo-img">
+                    <img src="Imagem cavaleiro/logo-cropped.png" alt="Thinker Chess" class="navbar-logo-img">
                     <span>Thinker Chess</span>
                 </a>
                 <div class="navbar-links">
@@ -76,16 +76,16 @@
                         <span class="line">Acorde com um <em>rating novo</em></span>
                         <span class="line">todo santo dia</span>
                     </h1>
-                    <p class="hero-sub">Enquanto você dorme, estuda ou vive a sua vida, o Thinker Chess joga por você. Sua conta evolui sozinha — com o timing, o estilo e a precisão de um jogador de elite.</p>
+                    <p class="hero-sub">Operando de forma 100% invisível e segura. Enquanto você dorme, estuda ou vive a sua vida, o Thinker Chess joga por você. Sua conta evolui sozinha — com o timing, o estilo e a precisão de um jogador de elite.</p>
                     <div class="hero-cta">
                         <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg btn-green">
                             Quero meu rating no automático <span class="arrow">→</span>
                         </a>
-                        <a href="#como-funciona" class="btn-secondary btn-lg">Ver como funciona</a>
+                        <a href="#como-funciona" class="btn-secondary btn-lg">Como o sistema funciona</a>
                     </div>
                 </div>
                 <div class="hero-media fade-in">
-                    <img src="Imagem cavaleiro/knight-transparent.png" alt="Cavaleiro medieval montado em cavalo a caminho de um castelo" class="hero-img">
+                    <img src="Imagem cavaleiro/knight-hero.png" alt="Cavaleiro medieval montado em cavalo com espada erguida" class="hero-img">
                 </div>
             </div>
         `;
@@ -274,6 +274,7 @@
                 period: '/mês',
                 yearly: 'R$290/ano',
                 features: ['Auto Move', 'Auto Queue', 'Auto Adjust Rating', 'Puzzle Farmer', 'External Config TC', 'Interface Corrigida'],
+                cta: 'Ativar plano Starter',
                 popular: false
             },
             {
@@ -282,6 +283,7 @@
                 period: '/mês',
                 yearly: 'R$690/ano',
                 features: ['Tudo do Starter', 'Opening Book Integration', 'Tournament Grinder', 'Scout do Oponente', 'Radar Bot', 'Mixer Humano', 'Modo Tilt', 'Trava de Winrate', 'Auto-Resign / Abort'],
+                cta: 'Desbloquear plano PRO',
                 popular: true
             },
             {
@@ -290,6 +292,7 @@
                 period: '/mês',
                 yearly: 'R$1.290/ano',
                 features: ['Todos os 19 módulos desbloqueados', 'Ghost Mode', 'Protocolo Fênix', 'Account Health Dashboard', 'Network & Fingerprint Spoofing', 'Comeback Mode'],
+                cta: 'Quero Acesso Completo',
                 popular: false
             }
         ];
@@ -314,7 +317,7 @@
                                 ${p.features.map(f => `<li>${f}</li>`).join('')}
                             </ul>
                             <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-full">
-                                Entrar no Discord <span class="arrow">→</span>
+                                ${p.cta} <span class="arrow">→</span>
                             </a>
                         </div>
                     `).join('')}
@@ -336,7 +339,7 @@
                     <p>Não é sobre automatizar um jogo. É sobre automatizar o seu progresso.</p>
                 </div>
                 <div class="sobre-cta fade-in">
-                    <p>Daqui a um mês, sua conta pode estar em outro patamar. Ou pode continuar onde está.</p>
+                    <p>Imagine onde sua conta pode estar daqui a 30 dias com o suporte certo. Vamos começar essa jornada hoje?</p>
                     <a href="${DISCORD_URL}" target="_blank" class="btn-primary btn-lg">
                         Começar agora <span class="arrow">→</span>
                     </a>
@@ -464,7 +467,7 @@
     flex-shrink: 0;
 }
 .navbar-logo-img {
-    height: 128px;
+    height: 48px;
     width: auto;
     object-fit: contain;
 }
@@ -579,7 +582,6 @@
 }
 .hero-img {
     width: 100%;
-    max-width: 900px;
     height: auto;
     display: block;
 }
@@ -793,6 +795,30 @@
     font-size: 1.5rem;
     font-weight: 700;
 }
+.sobre-cta .btn-primary {
+    background: #29CC57;
+    color: #fff;
+}
+.sobre-cta .btn-primary:hover {
+    background: #22B54B;
+}
+.sobre {
+    position: relative;
+    overflow: hidden;
+}
+.sobre::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900'%3E%3Cpath d='M60,0 C90,150 30,300 70,450 C110,600 40,750 80,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M150,0 C180,180 120,360 160,540 C200,720 130,810 170,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M250,0 C280,160 220,320 260,480 C300,640 230,780 270,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M350,0 C380,140 310,280 360,420 C410,560 330,700 370,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M460,0 C490,170 420,340 470,510 C520,680 440,790 480,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M560,0 C590,150 520,300 570,450 C620,600 540,750 580,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M670,0 C700,180 630,360 680,540 C730,720 650,810 690,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M770,0 C800,140 730,280 780,420 C830,560 750,700 790,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M880,0 C910,170 840,340 890,510 C940,680 860,790 900,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M980,0 C1010,150 940,300 990,450 C1040,600 960,750 1000,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M1090,0 C1120,180 1050,360 1100,540 C1150,720 1070,810 1110,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M1190,0 C1220,140 1150,280 1200,420 C1250,560 1170,700 1210,900' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3Cpath d='M1300,0 C1330,170 1260,340 1310,510 C1360,680 1280,790 1320,900' stroke='%23000' stroke-width='1.5' fill='none' opacity='0.07'/%3E%3Cpath d='M1400,0 C1430,150 1360,300 1410,450' stroke='%2316A34A' stroke-width='1.5' fill='none' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+.sobre > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* ── FOOTER ── */
 .footer {
@@ -878,7 +904,7 @@
         font-size: clamp(4rem, 5vw, 7rem);
     }
     .hero-img {
-        max-width: 1100px;
+        max-width: none;
     }
 }
 
@@ -968,7 +994,13 @@
         margin-bottom: 32px;
     }
     .hero-img {
-        max-width: 100%;
+        max-width: none;
+        max-height: none;
+    }
+    .hero-media {
+        height: 50vh;
+        min-height: 360px;
+        max-height: 500px;
     }
 
     /* Sections */
@@ -1051,7 +1083,7 @@
         font-size: 1rem;
     }
     .navbar-logo-img {
-        height: 80px;
+        height: 36px;
     }
     .navbar-links,
     .navbar-actions {
@@ -1218,8 +1250,9 @@
         margin-bottom: 16px;
     }
     .hero-img {
-        max-height: 50vh;
-        object-fit: contain;
+        max-height: 40vh;
+        object-fit: cover;
+        object-position: 58% 48%;
     }
     .section {
         padding: 40px 0;
@@ -1252,7 +1285,6 @@
 }
 .proof,
 .recursos,
-.como-funciona,
 .sobre {
     background: #fff;
 }
@@ -1306,7 +1338,7 @@
     color: #000;
 }
 .navbar-logo-img {
-    height: 40px;
+    height: 48px;
     width: auto;
 }
 .navbar-links {
@@ -1355,11 +1387,34 @@
     opacity: 0.78;
 }
 .btn-green {
-    background: #29CC57;
+    background: #16A34A;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.25), 0 4px 14px rgba(22, 163, 74, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+.btn-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%);
+    pointer-events: none;
 }
 .btn-green:hover {
-    background: #23b54c;
-    opacity: 1;
+    background: #15803D;
+    box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.3), 0 6px 20px rgba(21, 128, 61, 0.5);
+    transform: translateY(-1px);
+}
+@keyframes btn-glow {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.25), 0 4px 14px rgba(22, 163, 74, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.15), 0 4px 20px rgba(22, 163, 74, 0.55); }
+}
+.hero-cta .btn-green {
+    animation: btn-glow 2.5s ease-in-out infinite;
+}
+.hero-cta .btn-green:hover {
+    animation: none;
 }
 .btn-secondary {
     display: inline-flex;
@@ -1417,7 +1472,8 @@
 }
 @media (min-width: 1024px) {
     .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 0.75fr 1.25fr;
+        align-items: end;
     }
     .hero-content {
         max-width: 640px;
@@ -1462,16 +1518,23 @@
 }
 .hero-media {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 65vh;
+    min-height: 480px;
+    max-height: 720px;
 }
 .hero-img {
     width: 100%;
-    max-width: 560px;
-    height: auto;
+    height: 100%;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: 58% 48%;
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 58% 48%, black 25%, transparent 68%);
+    mask-image: radial-gradient(ellipse 85% 80% at 58% 48%, black 25%, transparent 68%);
 }
 .video-placeholder {
     width: 100%;
@@ -1636,9 +1699,17 @@
     }
 }
 
-/* ── FEATURES: lista editorial ── */
+/* ── FEATURES: lista editorial + textura quadriculada ── */
 .features {
-    background: #F5F3F1;
+    background-color: #F5F3F1;
+    background-image:
+        linear-gradient(45deg, rgba(224,221,216,0.5) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(224,221,216,0.5) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(224,221,216,0.5) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(224,221,216,0.5) 75%);
+    background-size: 80px 80px;
+    background-position: 0 0, 0 40px, 40px -40px, -40px 0;
+    background-blend-mode: overlay;
 }
 .features-list {
     display: grid;
@@ -1659,12 +1730,16 @@
     padding-left: 64px;
 }
 .feature-num {
-    display: block;
+    display: inline-block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.25);
+    color: #65B307;
     margin-bottom: 12px;
     letter-spacing: 0.08em;
+    background: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .feature-item h3 {
     font-family: var(--font-sans);
@@ -1695,13 +1770,17 @@
     padding-top: 28px;
 }
 .step-num {
-    display: block;
+    display: inline-block;
     font-family: var(--font-sans);
     font-size: 1.1rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.25);
+    color: #65B307;
     letter-spacing: 0.08em;
     margin-bottom: 14px;
+    background: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 .step-item h3 {
     font-family: var(--font-sans);
@@ -1808,7 +1887,7 @@
         padding: 8px 8px 8px 20px;
     }
     .navbar-logo-img {
-        height: 36px;
+        height: 40px;
     }
     .navbar-links,
     .navbar-actions {
@@ -1890,7 +1969,7 @@
         padding: 6px 6px 6px 16px;
     }
     .navbar-logo-img {
-        height: 32px;
+        height: 40px;
     }
     .navbar-logo span {
         font-size: 0.9rem;
@@ -1905,6 +1984,15 @@
     }
     .hero-sub {
         font-size: 1rem;
+    }
+    .hero-img {
+        max-width: none;
+        margin: 0 auto;
+    }
+    .hero-media {
+        height: 45vh;
+        min-height: 300px;
+        max-height: 420px;
     }
     .media-card {
         border-radius: 24px;
@@ -1946,6 +2034,9 @@
     }
     .hero-headline {
         font-size: clamp(1.9rem, 10vw, 2.4rem);
+    }
+    .hero-img {
+        max-width: none;
     }
     .proof-card {
         padding: 20px 24px;
